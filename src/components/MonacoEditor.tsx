@@ -81,7 +81,7 @@ const MonacoEditor = ({
       if (data) {
         setIsLoading(false);
 
-        router.push(`http://localhost:3000/${data.note._id}`);
+        router.push(`/${data.note._id}`);
       }
     } catch (error) {
       setIsLoading(false);
@@ -91,7 +91,7 @@ const MonacoEditor = ({
 
   const copyNoteLink = async () => {
     if (id) {
-      await copy(`http://localhost:3000/${id}`);
+      await copy(`https://note-code-app.vercel.app/${id}`);
       handleConfirm("Copy to clipboard!");
     }
   };
