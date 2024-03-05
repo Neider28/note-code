@@ -116,12 +116,12 @@ const MonacoEditor = ({
           },
         }}
       />
-      <div className="w-full flex items-center justify-between pt-4">
-        <div className="flex gap-4">
+      <div className={`w-full flex sm:flex-row gap-4 flex-col ${(isLink && id) ? "items-center" : "items-start"} lg:items-center justify-between pt-4`}>
+        <div className="w-full lg:w-auto flex gap-4 sm:flex-col lg:flex-row">
           <Select
             defaultSelectedKeys={[!languageInit ? "html" : languageInit]}
             aria-label="Languages"
-            className="w-40"
+            className="w-full lg:w-40"
             onChange={handleSelectionLanguageChange}
             isDisabled={isLink}
           >
@@ -134,7 +134,7 @@ const MonacoEditor = ({
           <Select
             defaultSelectedKeys={[!themeInit ? "vs-dark" : themeInit]}
             aria-label="Themes"
-            className="w-40"
+            className="w-full lg:w-40"
             onChange={handleSelectionThemeChange}
             isDisabled={isLink}
           >
@@ -145,9 +145,10 @@ const MonacoEditor = ({
             ))}
           </Select>
         </div>
-        <div className="flex gap-4 items-center">
+        <div className="w-full lg:w-auto flex lg:flex-row flex-col gap-4 items-center">
           {(isLink && id) && (
             <Button
+              className="w-full lg:w-fit"
               color="success"
               variant="bordered"
               radius="full"
@@ -159,6 +160,7 @@ const MonacoEditor = ({
             </Button>
           )}
           <Button
+            className="w-full lg:w-32"
             color="primary"
             radius="full"
             size="lg"
